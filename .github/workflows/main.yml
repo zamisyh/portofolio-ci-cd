@@ -16,15 +16,15 @@ jobs:
     
     - name: rsync deployments
       uses: contention/rsync-deployments@v1.0.0
-        workflow "All pushes" {
-        on = "push"
-        resolves = ["Deploy to Staging"]
-      }
-
-      action "Deploy to Staging" {
-        uses = "contention/action-rsync-deploy@master"
-        secrets = ${{ secrets.DEPLOY_KEY }}
-        args = ["-avzr --delete", "--exclude .htaccess --exclude /uploads/", "uiixb8hw@194.233.77.193:/home/uiixb8hw/public_html/"]
-      } 
+  
+    - name: 📂 Sync files
+      uses: burnett01/rsync-deployments@5.2
+      with:
+        switches: -avzr --delete --exclude=".git" --exclude=".github"
+        path: /
+        remote_path: /home/uiixb8hw/public_html
+        remote_host: zam.skom.id
+        remote_user: uiixb8hw
+        remote_key: ${{ secrets.DEPLOY_KEY }}
         
    
