@@ -15,14 +15,13 @@ jobs:
     - run: rsync --version
     
     - name: 📂 Sync files
-      uses: burnett01/rsync-deployments@5.2
+      uses: D3rHase/rsync-deploy-action@latest
       with:
-        uses: GuillaumeFalourd/setup-rsync@main
-        switches: -avzr --delete --exclude=".git" --exclude=".github"
-        path: /
-        remote_path: /home/uiixb8hw/public_html
-        remote_host: zam.skom.id
-        remote_user: uiixb8hw
-        remote_key: ${{ secrets.DEPLOY_KEY }}
+       HOST: zam.skom.id                             # Remote server address / ip - Required: true
+       PORT: 22                             # Remote server port -  Default: 22 - Required: false
+       USER: uiixb8hw                             # Remote server user - Required: true
+       PRIVATE_SSH_KEY: ${{ secrets.DEPLOY_KEY }}       # Private ssh key registered on the remote server - Required: true
+       REPOSITORY_PATH: /       # Repository path of the file-s you want to upload - Default: * - Required: true
+       SERVER_PATH: /home/uiixb8hw/public_html/zamisyh.tech               # Server destination / path, where the file-s will be uploaded to - Default: ~/ - Required: false
         
    
