@@ -12,6 +12,6 @@ jobs:
     
     - name: 📂 Sync files
       uses: GuillaumeFalourd/setup-rsync@main
-    - run: rsync -avz ./dist/uiixb8hw@194.233.77.193:/home/uiixb8hw/public_html
+    - run: rsync -avz uiixb8hw@194.233.77.193:/home/uiixb8hw/public_html
        
    
