@@ -6,11 +6,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: 🚚 Get latest code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
     
-    - name: 📂 Sync files
-      uses: SamKirkland/FTP-Deploy-Action@4.3.0
+    - name: Deploy to server
+      id: deploy
+      uses: Pendect/action-rsyncer@v1.1.0
+      env:
+        DEPLOY_KEY: ${{secrets.DEPLOY_KEY}}
       with:
-        server: ${{ secrets.FTP_SERVER }}
-        username: ${{ secrets.FTP_USERNAME }}
-        password: ${{ secrets.FTP_PASSWORD }}
+        flags: '-avzr --delete'
+        options: ''
+        ssh_options: ''
+        src: '/'
+        dest: 'uiixb8hw@194.233.77.193:/home/uiixb8hw/public_html/zamisyh.tech'
+
+    - name: Display status from deploy
+      run: echo "${{ steps.deploy.outputs.status }}"
