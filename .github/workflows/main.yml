@@ -8,14 +8,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: 🚚 Get latest code
-      uses: actions/checkout@v2.3.2
+      uses: actions/checkout@v3
 
     - name: 📂 Sync files
       uses: burnett01/rsync-deployments@4.1
       with:
         switches: -avzr --delete --exclude=".git" --exclude=".github"
         path: /
-        remote_path: /home/uiixb8hw/public_html
-        remote_host: zamisyh.tech
+        remote_path: /home/uiixb8hw/public_html/zamisyh.tech
+        remote_host: zam.skom.id
         remote_user: uiixb8hw
         remote_key: ${{ secrets.DEPLOY_KEY }}
