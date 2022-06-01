@@ -15,7 +15,7 @@ jobs:
     - run: rsync --version
     
     - name: 📂 Sync files
-      uses: D3rHase/rsync-deploy-action@v0.2
+      uses: D3rHase/rsync-deploy-action@0.2
       with:
        HOST: zam.skom.id                             # Remote server address / ip - Required: true
        PORT: 22                             # Remote server port -  Default: 22 - Required: false
