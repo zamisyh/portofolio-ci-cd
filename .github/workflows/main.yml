@@ -15,7 +15,7 @@ jobs:
       with:
         switches: -avzr --delete --exclude=".git" --exclude=".github"
         path: /
-        remote_path: /home/uiixb8hw/public_html/zamisyh.tech
+        remote_path: /home/uiixb8hw/public_html
         remote_host: zam.skom.id
         remote_user: uiixb8hw
         remote_key: ${{ secrets.DEPLOY_KEY }}
