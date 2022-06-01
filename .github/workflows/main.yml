@@ -12,8 +12,7 @@ jobs:
       
     - name: Install rsync
     - uses: GuillaumeFalourd/setup-rsync@v1
-    - run: rsync --version
-
+  
     - name: 📂 Sync files
       uses: burnett01/rsync-deployments@4.1
       with:
