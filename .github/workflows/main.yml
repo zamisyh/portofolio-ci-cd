@@ -10,8 +10,8 @@ jobs:
     - name: 🚚 Get latest code
       uses: actions/checkout@v2.3.2
       
-    - name: Install rsync
-    - uses: GuillaumeFalourd/setup-rsync@v1
+    - uses: GuillaumeFalourd/setup-rsync@main
+    - run: rsync --version
   
     - name: 📂 Sync files
       uses: burnett01/rsync-deployments@4.1
