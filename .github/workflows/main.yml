@@ -15,4 +15,5 @@ jobs:
         run: ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
         
       - name: Deploy with rsync
-        run: rsync -avz uiixb8hw@${{ secrets.SSH_HOST }}:/home/uiixb8hw/public_html/zamisyh.tech/
+        uses: GuillaumeFalourd/setup-rsync@v1
+      - run: rsync -avz uiixb8hw@${{ secrets.SSH_HOST }}:/home/uiixb8hw/public_html/zamisyh.tech/
