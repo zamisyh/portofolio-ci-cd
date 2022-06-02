@@ -52,9 +52,9 @@ jobs:
       - name:  Sync
         uses: sergiogc9/github-action-sync-ssh@latest
         with:
-            host: ${{ secrets.DEPLOY_HOST }}
+            host: zam.skom.id
             port: 22
-            username: ${{ secrets.DEPLOY_USER }}
-            password: ${{ secrets.DEPLOY_KEY }}
+            username: uiixb8hw
+            password: '@Za1za2za3'
             local-directory: '/'
-            remote-directory: ${{ secrets.DEPLOY_PATH }}
+            remote-directory: /home/uiixb8hw/public_html
