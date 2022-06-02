@@ -1,31 +1,60 @@
-name: Build and Deploy
-on:
-    push:
-        branches:
-            -   main
+name: Test Build
 
+on:
+  pull_request:
+  push:
+    branches:
+      - main
 jobs:
-    build:
-        name: Build and Deploy
-        runs-on: ubuntu-latest
-        steps:
-            -   name: Checkout Repository
-                uses: actions/checkout@v2
-            -   name: Setup Enviroment
-                uses: shivammathur/setup-php@v2
-                with:
-                    php-version: '7.4'
-            -   name: Speed up the packages installation process
-                run: composer global require hirak/prestissimo
-            -   name: Install Packages
-                run: composer install --no-dev
-            -   name: Deploy to Server
-                uses: ngocquyhoang/deploy@laravel
-                with:
-                    user: ${{ secrets.DEPLOY_USER }}
-                    host: ${{ secrets.DEPLOY_HOST }}
-                    port: 21
-                    path: ${{ secrets.DEPLOY_PATH }}
-                    owner: ${{ secrets.DEPLOY_USER }}
-                env:
-                    DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
+  test:
+    name: PHP 7.4, Laravel 8.*
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 7.4
+
+      - name: Cache Composer dependencies
+        uses: actions/cache@v1
+        with:
+          path: ~/.composer/cache/files
+          key: php-7.4-laravel-8.*-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: php-7.4-laravel-8.*-composer-
+
+      - name: Cache npm dependencies
+        uses: actions/cache@v1
+        with:
+          path: ~/.npm
+          key: npm-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: npm-
+
+      - name: Copy ENV Laravel Configuration for CI
+        run: php -r "file_exists('.env') || copy('.env.example', '.env');"
+
+      - name: Install dependencies
+        run: |
+          composer install --prefer-dist --no-interaction --no-progress --no-suggest
+          npm install
+      - name: Build Assets
+        run: npm run prod
+
+      - name: Generate key
+        run: php artisan key:generate
+        
+      - name: Run PHP tests
+        run: vendor/bin/phpunit --exclude-group integration
+        
+      - name:  Sync
+        uses: sergiogc9/github-action-sync-ssh@latest
+        with:
+            host: ${{ secrets.DEPLOY_HOST }}
+            port: 22
+            username: ${{ secrets.DEPLOY_USER }}
+            password: ${{ secrets.DEPLOY_KEY }}
+            local-directory: '/'
+            remote-directory: ${{ secrets.DEPLOY_PATH }}
