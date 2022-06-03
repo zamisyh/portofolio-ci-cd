@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Livewire\Clients\Home;
 use Illuminate\Support\Facades\Route;
+use App\Http\Livewire\Clients\About;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,4 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/', 'welcome')->name('home');
+Route::name('client.')->group(function(){
+    Route::get('/', Home::class)->name('home');
+    Route::get('/about', About::class)->name('about');
+});
