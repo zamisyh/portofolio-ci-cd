@@ -69,10 +69,10 @@
                                     <a href="{{ route('client.about') }}">About</a>
                                 </li>
                                 <li>
-                                    <a>Blog</a>
+                                    <a href="https://dev.to/zamisyh">Blog</a>
                                 </li>
                                 <li>
-                                    <a>Projects</a>
+                                    <a href="#">Projects</a>
                                 </li>
                               </ul>
                             <div class="modal-action">

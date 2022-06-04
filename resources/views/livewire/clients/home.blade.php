@@ -1,5 +1,6 @@
 <div>
 
+    @section('title', 'Zamzam Saputra - Personal Website')
     @section('js')
         <script src="{{ asset('library/particlejs/particles.min.js') }}"></script>
         <script>
