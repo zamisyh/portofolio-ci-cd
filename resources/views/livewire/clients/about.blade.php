@@ -26,10 +26,19 @@
             <div class="wrapper-about">
                 <h1 class="mt-10 mb-5 text-4xl font-bold hover:underline">About Me</h1>
                 <p>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Optio iste perspiciatis mollitia nobis. Atque reiciendis inventore quasi eius. Distinctio reprehenderit perferendis totam eaque itaque! Quos commodi labore, tempora magnam odio voluptatem modi voluptatibus quas necessitatibus veritatis sapiente explicabo asperiores iusto amet impedit ipsam cum, molestiae quibusdam possimus qui ea. Praesentium odit, quidem libero tenetur eaque nesciunt corporis accusantium minus? Iste?
+                    Hello everyone. my name is Zamzam Saputra you can call me Zami or Zamzam
                 </p>
                 <p class="mt-5">
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Optio iste perspiciatis mollitia nobis. Atque reiciendis inventore quasi eius. Distinctio reprehenderit perferendis totam eaque itaque! Quos commodi labore, tempora magnam odio voluptatem modi voluptatibus quas necessitatibus veritatis sapiente explicabo asperiores iusto amet impedit ipsam cum, molestiae quibusdam possimus qui ea. Praesentium odit, quidem libero tenetur eaque nesciunt corporis accusantium minus? Iste?
+                    I am a Full-Stack Developer who specializes in Backend Developers, building complex applications using APIs with microservice concepts, I also like and am currently studying SysAdmin and DevOps for good application deployment management, besides that, I am also learning Front End Developers. I like exploring tech-related stuff and now I use Nodejs, Laravel as Backend and React, Tailwind, Alpinejs, bootstrap, etc for Front End.
+                </p>
+                <p class="mt-5">
+                    Born and Raised in Bekasi, Indonesia. Currently, I live in Bekasi with my parents. take S1 Informatics Engineering at Bina Insani University in 2022
+                </p>
+                <p class="mt-5">
+                    I am an enthusiastic, self-motivated, reliable, responsible, and hard-working person. I am a mature team worker and adaptable to all challenging situations. I can work well both in a team environment as well
+                </p>
+                <p class="mt-5">
+                    Lastly, I am very grateful to everyone who came to read my profile, I am open to talk about the possibilities related to technology and SEO optimization. Do not hesitate to get in touch with me below.
                 </p>
             </div>
             <div class="wrapper-work">
